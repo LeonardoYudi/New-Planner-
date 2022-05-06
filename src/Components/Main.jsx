@@ -1,9 +1,11 @@
-import { InfoStyle,ImageStyle } from "../Sections/Screen"
+import { InfoStyle,ImageStyle, } from "../Sections/Screen"
 import NotImage from "../assets/not.jpg"
+import { MainArea } from "../Sections/Screen.styled";
+
 
 function Main(){
     return(
-        <>
+        <MainArea>
             <InfoStyle>
                 <h2>
                     Gerencie aqui o seu Workspace
@@ -16,7 +18,7 @@ function Main(){
             <ImageStyle>
                 <img src={NotImage} alt="Imagem Notbook"></img>
             </ImageStyle>
-        </>
+        </MainArea>
     )
 }
 

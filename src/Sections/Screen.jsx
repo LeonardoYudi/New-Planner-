@@ -1,8 +1,9 @@
 import styled, { ThemeProvider } from "styled-components";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Logo, NavBar , Main, Footer} from "../Components";
+import { Logo, NavBar , Main, Footer, Login, Cadastro} from "../Components";
 import { useState } from "react";
 import { HeaderArea , MainArea, FooterArea} from "./Screen.styled";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 function Screen() {
   const [theme, setTheme] = useState("light");
@@ -10,9 +11,12 @@ function Screen() {
   const LightTheme = {
     titleColor1: "black",
     titleColor2: "#097b99",
-    backgroundPage: "#fff",
+    backgroundPage: "#e8e4e4",
     backgroundIcon: "#292C35",
-    colorLinks: "black"
+    colorLinks: "black",
+    colorTitleAcess: "#284c54",
+    backGroundButton1:"#0ea4c9",
+    backGroundButton2:"none",
   };
 
   const DarkTheme = {
@@ -20,7 +24,10 @@ function Screen() {
     titleColor2: "#097b99",
     backgroundPage: "#080404",
     backgroundIcon: "#ecedef",
-    colorLinks: "white"
+    colorLinks: "white",
+    colorTitleAcess: "white",
+    backGroundButton1:"#0ea4c9",
+    backGroundButton2:"#0ea4c9",
   };
 
   const themes = {
@@ -40,28 +47,37 @@ function Screen() {
 
   return (
     <div>
-      <ThemeProvider theme={themes[theme]}>
-        <PageStyle>
-          <HeaderArea>
-            <HeaderPage>
-              <Logo />
-              <>
-                <NavBar/>
-                <ThemeToggle onClick={changeTheme}>{icon}</ThemeToggle>
-              </>
-            </HeaderPage>
-          </HeaderArea>
-          <MainArea>
-            <Main/>
-          </MainArea>
-          <FooterArea>
-            <Footer/>
-          </FooterArea>
-        </PageStyle>
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={themes[theme]}>
+          <PageStyle>
+            <HeaderArea>
+              <HeaderPage>
+                <Logo />
+                <>
+                  <NavBar/>
+                  <ThemeToggle onClick={changeTheme}>{icon}</ThemeToggle>
+                </>
+              </HeaderPage>
+            </HeaderArea>
+            <MainArea>
+              <Routes>
+                <Route path="/" element={<Main/>} />
+                <Route path="/login" element={<Login/>}/>
+                <Route path="/cadastro" element={<Cadastro/>}/>
+              </Routes>
+            </MainArea>
+            <FooterArea>
+              <Footer/>
+            </FooterArea>
+          </PageStyle>
+        </ThemeProvider>
+      </BrowserRouter>
     </div>
   );
 }
+
+export default Screen;
+
 
 export const PageStyle = styled.main`
   width: 100vw;
@@ -181,4 +197,74 @@ export const FooterStyle = styled.footer`
   align-items: center;
 `
 
-export default Screen;
+export const AcessArea = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h2{
+        color: ${(props)=>props.theme.colorTitleAcess};
+        font-size: 350%;
+        margin-bottom: 2.5rem;
+    }
+    h3{
+        color: ${(props)=>props.theme.colorTitleAcess};
+        font-size: 150%;
+        font-weight: 400;
+        margin-bottom: 1.3rem;
+    }
+`
+
+export const InputAcess = styled.input`
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 400;
+    width: 90%;
+    border-radius: 0.3rem;
+    border: none;
+    outline: none;
+    margin-bottom: 1.4rem;
+`
+
+export const FormAcess = styled.form`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+`
+export const ButtonAcess = styled.button`
+    width: 90%;
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    border: none;
+    font-size: x-large;
+    font-weight: 500;
+    cursor: pointer;
+    background:${(props)=>props.theme.backGroundButton1};
+    color: ${(props)=>props.theme.colorTitleAcess};
+    box-shadow: 0px 6px 10px -2px #8B8B8B;
+    margin-bottom: 1rem;
+    transition: all 0.3s;
+    :hover{
+      box-shadow: 0px 2px 11px 6px rgba(17,197,241,0.71);
+    }
+`
+
+export const LinkStyle = styled(Link)`
+  text-decoration: none;
+  color: ${(props)=>props.theme.colorTitleAcess};
+`
+
+export const AcessP = styled.p`
+   color: ${(props)=>props.theme.colorTitleAcess};
+   font-weight: 400;
+   margin-bottom: 0.8rem;
+`
+
+export const ButtonLogCad = styled(ButtonAcess)`
+    border: none;
+    background:${(props)=>props.theme.backGroundButton2};
+    color: ${(props)=>props.theme.colorTitleAcess};
+    padding: 1rem 2rem;
+    font-size: large;
+    width: 70%;
+`

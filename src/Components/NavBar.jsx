@@ -1,13 +1,14 @@
 import { DisplayNav,NavButton } from "../Sections/Screen";
+import { Link } from "react-router-dom";
 
-function NavBar(props) {
+function NavBar() {
     return (
       <DisplayNav>
-        <NavButton>Inicio</NavButton>
+        <Link to="/"><NavButton>Inicio</NavButton></Link>
         <NavButton>Documentação</NavButton>
         <NavButton>Página</NavButton>
-        <NavButton>Cadastrar</NavButton>
-        <NavButton>Login</NavButton>
+        <Link to="/cadastro"><NavButton>Cadastrar</NavButton></Link>
+        <Link to="/login"><NavButton>Login</NavButton></Link>
       </DisplayNav>
     );
 }
