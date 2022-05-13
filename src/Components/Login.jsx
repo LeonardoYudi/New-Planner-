@@ -1,6 +1,5 @@
 import { CenterArea } from "../Sections/Screen.styled";
 import { AcessArea ,InputAcess , FormAcess , ButtonAcess, AcessP, ButtonLogCad, LinkStyle} from "../Sections/Screen";
-import { Link } from "react-router-dom";
 
 function Login(){
     return(

@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Logo, NavBar , Main, Footer, Login, Cadastro} from "../Components";
+import { Logo, NavBar , Main, Footer, Login, Cadastro, Pagina,PageUser} from "../Components";
 import { useState } from "react";
 import { HeaderArea , MainArea, FooterArea} from "./Screen.styled";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
@@ -62,8 +62,10 @@ function Screen() {
             <MainArea>
               <Routes>
                 <Route path="/" element={<Main/>} />
+                <Route path="/userPage" element={<PageUser/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/cadastro" element={<Cadastro/>}/>
+                <Route path="/pagina" element={<Pagina/>}/>
               </Routes>
             </MainArea>
             <FooterArea>
@@ -97,7 +99,7 @@ const ThemeToggle = styled.button`
 
 export const HeaderPage = styled.header`
   display: flex;
-  padding: 1.8rem 2rem;
+  padding: 1.3rem 2rem;
   justify-content: space-between;
 `
 
