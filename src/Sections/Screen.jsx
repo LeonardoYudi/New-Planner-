@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Logo, NavBar , Main, Footer, Login, Cadastro, Pagina,PageUser} from "../Components";
+import { Logo, NavBar , Main, Footer, Login, Cadastro, Pagina,PageUserLembretes} from "../Components";
 import { useState } from "react";
 import { HeaderArea , MainArea, FooterArea} from "./Screen.styled";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
@@ -50,7 +50,7 @@ function Screen() {
       <BrowserRouter>
         <ThemeProvider theme={themes[theme]}>
           <PageStyle>
-            <HeaderArea>
+            <HeaderArea id="pageHeader">
               <HeaderPage>
                 <Logo />
                 <>
@@ -62,7 +62,7 @@ function Screen() {
             <MainArea>
               <Routes>
                 <Route path="/" element={<Main/>} />
-                <Route path="/userPage" element={<PageUser/>}/>
+                <Route path="/userPage" element={<PageUserLembretes/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/cadastro" element={<Cadastro/>}/>
                 <Route path="/pagina" element={<Pagina/>}/>
@@ -80,7 +80,7 @@ function Screen() {
 
 export default Screen;
 
-
+//Definindo tamanho e cor da página
 export const PageStyle = styled.main`
   width: 100vw;
   height: 100vh;
@@ -88,6 +88,7 @@ export const PageStyle = styled.main`
   transition: 1.2s;
 `;
 
+//Botão que altera a o tema dá página
 const ThemeToggle = styled.button`
   cursor: pointer;
   height: 50px;
@@ -97,12 +98,14 @@ const ThemeToggle = styled.button`
   background-color: ${(props) => props.theme.backgroundIcon};
 `;
 
+//Header da página
 export const HeaderPage = styled.header`
   display: flex;
   padding: 1.3rem 2rem;
   justify-content: space-between;
 `
 
+//Logo da página
 export const TitlePageStyle = styled.h1`
   font-size: 250%;
   cursor: pointer;
@@ -114,10 +117,11 @@ export const TitlePageStyle = styled.h1`
   }
 `;
 
+//Display do nav 
 export const DisplayNav = styled.nav`
   display: flex;
 `
-
+//Estilo dos botões do nav
 export const NavButton = styled.button`
   color: ${(props)=>props.theme.colorLinks};
   background: none;
@@ -144,6 +148,7 @@ export const NavButton = styled.button`
   }
 `
 
+//Informações presentes na tela inicial
 export const InfoStyle = styled.div`
   width: 32vw;
   display: flex;
@@ -179,6 +184,8 @@ export const InfoStyle = styled.div`
   }
 
 `
+
+//Definições da imagem de início
 export const ImageStyle = styled.div`
   width: 68vw;
   display: flex;
@@ -199,6 +206,7 @@ export const FooterStyle = styled.footer`
   align-items: center;
 `
 
+//Estilo da Área de login/cadastro
 export const AcessArea = styled.div`
     display: flex;
     flex-direction: column;
@@ -216,6 +224,7 @@ export const AcessArea = styled.div`
     }
 `
 
+//Inputs das telas de login/cadastro
 export const InputAcess = styled.input`
     padding: 1rem 2rem;
     font-size: 1.1rem;
@@ -227,12 +236,15 @@ export const InputAcess = styled.input`
     margin-bottom: 1.4rem;
 `
 
+//Display do Form de login/cadastro
 export const FormAcess = styled.form`
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 `
+
+//Style do botão de acesso/cadastro
 export const ButtonAcess = styled.button`
     width: 90%;
     padding: 1rem 2rem;
@@ -251,6 +263,7 @@ export const ButtonAcess = styled.button`
     }
 `
 
+//
 export const LinkStyle = styled(Link)`
   text-decoration: none;
   color: ${(props)=>props.theme.colorTitleAcess};
@@ -262,6 +275,7 @@ export const AcessP = styled.p`
    margin-bottom: 0.8rem;
 `
 
+//Botão que alterna entre as telas de login e cadastro
 export const ButtonLogCad = styled(ButtonAcess)`
     border: none;
     background:${(props)=>props.theme.backGroundButton2};
@@ -269,4 +283,145 @@ export const ButtonLogCad = styled(ButtonAcess)`
     padding: 1rem 2rem;
     font-size: large;
     width: 70%;
+`
+
+export const StyleAsideUser = styled.aside`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 1rem 0rem 0rem 0rem;
+  justify-content: space-between;
+  div{
+    display: flex;
+    flex-direction: column;
+  }
+`
+
+export const AsideButton = styled.button`
+  padding: 1rem 4rem;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border:none;
+  text-align: start;
+  background: none;
+  transition: all 0.4s;
+  border-radius: 0rem 1rem 1rem 0rem;
+  
+  :hover{
+    background-color: #cee5eb;
+  }
+`
+
+export const AsideButtonSair = styled(AsideButton)`
+  margin-bottom: 0rem;
+  text-align: center;
+  :hover{
+    background-color:#B73838;
+  }
+`
+
+export const AreaUser = styled.section`
+  display: flex;
+  width: 100%;
+  margin: 1rem 1rem;
+  border: 1px solid blue;
+  border-radius: 1.7rem;
+`
+
+export const CardArea = styled.section`
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid green;
+  padding: 0.5rem;
+`
+
+export const CardList = styled.ul`
+  padding: 2rem 1rem;
+  width: 100%;
+  display: flex;
+`
+export const Card = styled.li`
+  width: 230px;
+  min-height: 200px;
+  background-color: #fbfb4ac5;
+  border-radius: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem;
+  box-shadow: 0px 6px 10px -2px #8B8B8B;
+  
+`
+
+export const HeaderCard = styled.header`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+`
+
+export const OptionsCard = styled.div`
+  button{
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+`
+
+export const AddTarefaArea = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  input{
+    padding: 0.4rem 0.7rem;
+    border-radius: 1rem;
+    margin-bottom: 0.3rem;
+    border: none;
+    outline: none;
+    width: 80%;
+    text-align: center;
+  }
+`
+
+export const ButtonAddTarefa = styled.button`
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+
+  :hover{
+    background-color: #cee5eb;
+  }
+`
+
+export const NewCardForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+  input{
+    width: 80%;
+    margin-bottom: 0.4rem;
+    padding: 0.7rem;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+  }
+  button{
+    width: 80%;
+    border: none;
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+
+    :hover{
+      cursor: pointer;
+      background: #1EB06A;
+    }
+  }
 `

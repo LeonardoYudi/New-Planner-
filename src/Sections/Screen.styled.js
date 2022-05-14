@@ -29,3 +29,4 @@ export const CenterArea = styled.section`
     justify-content: center;
     align-items: center;
 `
+

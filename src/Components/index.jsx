@@ -5,7 +5,7 @@ import Logo from "./Logo";
 import Main from "./Main";
 import NavBar from "./NavBar";
 import Pagina from "./Pagina";
-import PageUser from "./UserPage";
+import PageUserLembretes from "./UserPageLembretes";
 
 
-export {Logo,NavBar,Main,Footer,Login,Cadastro,Pagina,PageUser}
+export {Logo,NavBar,Main,Footer,Login,Cadastro,Pagina,PageUserLembretes}
