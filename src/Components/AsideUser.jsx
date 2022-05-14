@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { StyleAsideUser, AsideButton, AsideButtonSair,NewCardForm } from "../Sections/Screen";
 
 function AsideUser(){
@@ -5,8 +6,8 @@ function AsideUser(){
         <StyleAsideUser>
             <div>
                 <AsideButton>Perfil</AsideButton>
-                <AsideButton>Lembretes</AsideButton>
-                <AsideButton>Configurações</AsideButton>
+                <Link to="/lembretes"><AsideButton>Lembretes</AsideButton></Link>
+                <Link to="/configuracoes"><AsideButton>Configurações</AsideButton></Link>
             </div>
             <div>
                 <NewCardForm>

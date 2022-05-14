@@ -1,6 +1,6 @@
 import styled, { ThemeProvider } from "styled-components";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Logo, NavBar , Main, Footer, Login, Cadastro, Pagina,PageUserLembretes} from "../Components";
+import { Logo, NavBar , Main, Footer, Login, Cadastro, Pagina,PageUserLembretes,UserPageConfigs} from "../Components";
 import { useState } from "react";
 import { HeaderArea , MainArea, FooterArea} from "./Screen.styled";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
@@ -62,10 +62,11 @@ function Screen() {
             <MainArea>
               <Routes>
                 <Route path="/" element={<Main/>} />
-                <Route path="/userPage" element={<PageUserLembretes/>}/>
+                <Route path="/lembretes" element={<PageUserLembretes/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/cadastro" element={<Cadastro/>}/>
                 <Route path="/pagina" element={<Pagina/>}/>
+                <Route path="/configuracoes" element={<UserPageConfigs/>}/>
               </Routes>
             </MainArea>
             <FooterArea>
@@ -423,5 +424,28 @@ export const NewCardForm = styled.form`
       cursor: pointer;
       background: #1EB06A;
     }
+  }
+`
+
+export const AlterarSenhaArea = styled.div`
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  form{
+    display: flex;
+    flex-direction: column;
+    input{
+      padding: 1rem 2rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+    }
+  }
+
+  button{
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    outline: none;
+    width: 80%;
   }
 `
