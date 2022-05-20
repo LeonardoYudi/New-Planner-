@@ -1,8 +1,8 @@
 import styled, { ThemeProvider } from "styled-components";
 import { FaSun, FaMoon } from "react-icons/fa";
-import { Logo, NavBar , Main, Footer, Login, Cadastro, Pagina,PageUserLembretes,UserPageConfigs} from "../Components";
+import { Logo, NavBar , Main, Footer, Login, Cadastro,PageUserLembretes,UserPageConfigs} from "../Components";
 import { useState } from "react";
-import { HeaderArea , MainArea, FooterArea} from "./Screen.styled";
+import { HeaderArea , MainArea, FooterPage} from "./Screen.styled";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 function Screen() {
@@ -43,14 +43,17 @@ function Screen() {
     }
   }
 
+  
+
   const icon = theme === "light" ? <FaMoon style={{color:'#f1c40f'}}/> : <FaSun style={{color:'#f39c12'}} />;
 
   return (
     <div>
       <BrowserRouter>
         <ThemeProvider theme={themes[theme]}>
+          
           <PageStyle>
-            <HeaderArea id="pageHeader">
+            <HeaderArea >
               <HeaderPage>
                 <Logo />
                 <>
@@ -65,13 +68,12 @@ function Screen() {
                 <Route path="/lembretes" element={<PageUserLembretes/>}/>
                 <Route path="/login" element={<Login/>}/>
                 <Route path="/cadastro" element={<Cadastro/>}/>
-                <Route path="/pagina" element={<Pagina/>}/>
                 <Route path="/configuracoes" element={<UserPageConfigs/>}/>
               </Routes>
             </MainArea>
-            <FooterArea>
-              <Footer/>
-            </FooterArea>
+            <FooterPage>
+              <Footer id="pageFooter"/>
+            </FooterPage>
           </PageStyle>
         </ThemeProvider>
       </BrowserRouter>
@@ -104,49 +106,6 @@ export const HeaderPage = styled.header`
   display: flex;
   padding: 1.3rem 2rem;
   justify-content: space-between;
-`
-
-//Logo da página
-export const TitlePageStyle = styled.h1`
-  font-size: 250%;
-  cursor: pointer;
-  .first {
-    color: ${(props) => props.theme.titleColor1};
-  }
-  .second {
-    color: ${(props) => props.theme.titleColor2};
-  }
-`;
-
-//Display do nav 
-export const DisplayNav = styled.nav`
-  display: flex;
-`
-//Estilo dos botões do nav
-export const NavButton = styled.button`
-  color: ${(props)=>props.theme.colorLinks};
-  background: none;
-  border: none;
-  padding: 1rem 2rem;
-  margin-right: 1rem;
-  font-size: 140%;
-  cursor: pointer;
-  position: relative;
-
-  :after {
-    content: "";
-    position: absolute;
-    background-color: ${(props) => props.theme.titleColor2};
-    height: 4px;
-    width: 0%;
-    left: 0;
-    bottom: -1px;
-    transition: all 0.3s;
-  }
-
-  :hover:after {
-    width: 100%;
-  }
 `
 
 //Informações presentes na tela inicial

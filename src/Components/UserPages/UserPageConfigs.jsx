@@ -1,4 +1,4 @@
-import { AreaUser} from "../Sections/Screen";
+import { AreaUser} from "../../Sections/Screen";
 import AsideUser from "./AsideUser";
 import ConfigsArea from "./ConfigsArea";
 

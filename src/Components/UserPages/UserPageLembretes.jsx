@@ -1,5 +1,5 @@
 
-import { AreaUser} from "../Sections/Screen";
+import { AreaUser} from "../../Sections/Screen";
 import AsideUser from "./AsideUser";
 import CardSpace from "./CardSpace";
 

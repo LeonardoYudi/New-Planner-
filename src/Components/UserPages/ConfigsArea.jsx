@@ -1,4 +1,5 @@
-import { CardArea, CardList,AlterarSenhaArea} from "../Sections/Screen";
+import styled from "styled-components";
+import { CardArea, CardList } from "./CardSpace";
 
 function ConfigsArea(){
     return(
@@ -20,3 +21,26 @@ function ConfigsArea(){
 }
 
 export default ConfigsArea;
+
+export const AlterarSenhaArea = styled.div`
+  display: flex;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: center;
+  form{
+    display: flex;
+    flex-direction: column;
+    input{
+      padding: 1rem 2rem;
+      margin-bottom: 1rem;
+      border-radius: 1rem;
+    }
+  }
+
+  button{
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    outline: none;
+    width: 80%;
+  }
+`

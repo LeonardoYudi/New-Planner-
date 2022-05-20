@@ -1,14 +1,12 @@
 import GlobalStyle from "./globalStyles";
-import Screen from "./Sections/Screen";
-
-
+import NewScreen from "./Sections/TesteScreen";
 
 function App() {
  
   return (
     <>
      <GlobalStyle/>
-     <Screen />
+     <NewScreen />
     </>
   );
 }

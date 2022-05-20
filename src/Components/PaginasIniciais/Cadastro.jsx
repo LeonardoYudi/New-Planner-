@@ -1,5 +1,5 @@
-import { CenterArea } from "../Sections/Screen.styled";
-import { AcessArea ,InputAcess , FormAcess , ButtonAcess, AcessP, ButtonLogCad, LinkStyle} from "../Sections/Screen";
+import { CenterArea } from "../../Sections/Screen.styled";
+import { AcessArea ,InputAcess , FormAcess , ButtonAcess, AcessP, ButtonLogCad} from "../../Sections/Screen.styled";
 import { Link } from "react-router-dom";
 
 
@@ -17,10 +17,12 @@ function Cadastro(){
                 </FormAcess>
                 <ButtonAcess>Cadastro</ButtonAcess>
                 <AcessP>Já possui conta ?</AcessP>
-                <ButtonLogCad><LinkStyle to="/login">Entrar agora</LinkStyle></ButtonLogCad>
+                <Link to="/login"><ButtonLogCad>Entrar Agora</ButtonLogCad></Link>
             </AcessArea>
         </CenterArea>
     )   
 }
 
 export default Cadastro;
+
+

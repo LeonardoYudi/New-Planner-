@@ -1,5 +1,6 @@
-import { CenterArea } from "../Sections/Screen.styled";
-import { AcessArea ,InputAcess , FormAcess , ButtonAcess, AcessP, ButtonLogCad, LinkStyle} from "../Sections/Screen";
+import { Link } from "react-router-dom";
+import { CenterArea,AcessArea,FormAcess, InputAcess, ButtonAcess, AcessP, ButtonLogCad, LinkStyle } from "../../Sections/Screen.styled";
+
 
 function Login(){
     return(
@@ -14,7 +15,7 @@ function Login(){
                 </FormAcess>
                 <ButtonAcess>Login</ButtonAcess>
                 <AcessP>Não possui conta ?</AcessP>
-                <ButtonLogCad><LinkStyle to="/cadastro">Criar agora</LinkStyle></ButtonLogCad>
+                <Link to="/cadastro"><ButtonLogCad>Criar Agora</ButtonLogCad></Link>
             </AcessArea>
         </CenterArea>
     )   

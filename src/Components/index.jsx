@@ -1,12 +1,11 @@
-import Cadastro from "./Cadastro";
-import Footer from "./Footer";
-import Login from "./Login";
-import Logo from "./Logo";
-import Main from "./Main";
-import NavBar from "./NavBar";
-import Pagina from "./Pagina";
-import UserPageConfigs from "./UserPageConfigs";
-import PageUserLembretes from "./UserPageLembretes";
+import Cadastro from "./PaginasIniciais/Cadastro";
+import Footer from "./PaginasIniciais/Footer";
+import Login from "./PaginasIniciais/Login";
+import Logo from "./PaginasIniciais/Logo";
+import Main from "./PaginasIniciais/Main";
+import NavBar from "./PaginasIniciais/NavBar";
+import UserPageConfigs from "./UserPages/UserPageConfigs";
+import PageUserLembretes from "./UserPages/UserPageLembretes";
 
 
-export {Logo,NavBar,Main,Footer,Login,Cadastro,Pagina,PageUserLembretes,UserPageConfigs}
+export {Logo,NavBar,Main,Footer,Login,Cadastro,PageUserLembretes,UserPageConfigs}
