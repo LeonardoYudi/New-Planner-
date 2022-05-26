@@ -2,48 +2,53 @@ import styled from "styled-components"
 import { useState , useEffect} from "react";
 import { BsTrash , BsEye, BsPlusCircle} from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Calendario from "./Calendario";
+
 function PostsList(){
     const[posts, setPosts] = useState([])
     const title = "Tarefas do dia"
     const dataCriado = "26/05/2022"
     return(
-      <AreaPosts>
-          <TitleSection>
-            <h2>Seus Posts</h2>
-          </TitleSection>
-          <PostList>
-                <Post>
-                    <PostTitle>
-                        <h3>{title}</h3>
-                        <button><BsTrash size={18}/></button>
-                    </PostTitle>
-                    <PostMain>
-                        <button><Link to="/postsIn">Visualizar</Link><BsEye size={24}/></button>
-                    </PostMain>
-                    <PostFooter>
-                        <Status>
-                            <label for="status">Status:</label>
-                            <select name="status" id="status">
-                                <option>Fazendo</option>
-                                <option>Completo</option>
-                            </select>
-                        </Status>
-                        <p>Criado em:{dataCriado}</p>
-                    </PostFooter>
-                </Post>   
-                <NovaPostagem>
-                    Novo Post
-                    <BsPlusCircle size={28}/>
-                </NovaPostagem>
-          </PostList>
-      </AreaPosts>
+        <>
+            <AreaPosts>
+                <TitleSection>
+                    <h2>Seus Posts</h2>
+                </TitleSection>
+                <PostList>
+                        <Post>
+                            <PostTitle>
+                                <h3>{title}</h3>
+                                <button><BsTrash size={18}/></button>
+                            </PostTitle>
+                            <PostMain>
+                                
+                            </PostMain>
+                            <PostFooter>
+                                <Status>
+                                    <label for="status">Status:</label>
+                                    <select name="status" id="status">
+                                        <option>Fazendo</option>
+                                        <option>Completo</option>
+                                    </select>
+                                </Status>
+                                <p>Criado em:{dataCriado}</p>
+                            </PostFooter>
+                        </Post>   
+                        <NovaPostagem>
+                            Novo Post
+                            <BsPlusCircle size={28}/>
+                        </NovaPostagem>
+                </PostList>
+            </AreaPosts>
+            <Calendario/>
+        </>
     )
 }
 
 export default PostsList;
 
 export const AreaPosts = styled.section`
-    width: 100%;
+    width: 90%;
     height: 100%;
     display: flex;
     flex-direction: column;

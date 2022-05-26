@@ -15,7 +15,6 @@ function NewAside(){
                         <BtnAside><Link to="/pagina"><button>Painel</button></Link></BtnAside>
                         <BtnAside><button>Calendário</button></BtnAside>
                         <BtnAside><button>Filmes Recomendados</button></BtnAside>
-                        <BtnAside><Link to="/postsIn"><button>Post Infos</button></Link></BtnAside>
                     </ul>
                 </section>
                 <ul>

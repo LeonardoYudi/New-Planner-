@@ -7,8 +7,6 @@ import PageLogin from "../Components/PaginasIniciais/pageLogin.jsx";
 import PageCadastro from "../Components/PaginasIniciais/pageCadastro.jsx";
 import NewUserPage from "../Components/UserPages/NewUserPage.jsx";
 import NewUserConfigs from "../Components/UserPages/NewUserConfigs.jsx";
-import PostPage from "../Components/UserPages/PostPage.jsx";
-
 
 function NewScreen(){
     const [theme, setTheme] = useState("light");
@@ -66,7 +64,6 @@ function NewScreen(){
                     <Route path="/cadastro" element={<PageCadastro/>}/>
                     <Route path="/pagina" element={<NewUserPage/>}/>
                     <Route path="/configs" element={<NewUserConfigs/>}/>
-                    <Route path="/postsIn" element={<PostPage/>}/>
                     <Route path="*" element={<PageStart/>}/>
                   </Routes>
                 </PageStyle>
