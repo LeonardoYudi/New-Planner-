@@ -1,0 +1,37 @@
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-calendars/styles/material.css";
+
+
+
+/* To specify background color, color, and border */
+.e-calendar .e-content td:hover span.e-day, .e-calendar .e-content td:focus span.e-day, .e-bigger.e-small .e-calendar .e-content td:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td:focus span.e-day {
+    background-color: lightblue;
+    border: 2px solid;
+    color: #212529;
+}
+
+
+
+/* To specify background color and color  */
+.e-calendar .e-content td.e-focused-date.e-today span.e-day {
+    background-color: #097b99;
+    color: #fff;
+    border: 1px solid green;
+}
+
+
+
+/* To specify background color, color, and border */
+.e-calendar .e-content td:hover span.e-day, .e-calendar .e-content td:focus span.e-day, .e-bigger.e-small .e-calendar .e-content td:hover span.e-day, .e-bigger.e-small .e-calendar .e-content td:focus span.e-day {
+    background-color: #097b99;
+    border: 2px solid;
+    color: #212529;
+}
+
+/* To specify background color, color, and border-color  */
+.e-calendar .e-btn.e-today.e-flat.e-primary, .e-calendar .e-css.e-btn.e-today.e-flat.e-primary {
+    background-color: lightblue;
+    border-color: black;
+    color: black;
+}
