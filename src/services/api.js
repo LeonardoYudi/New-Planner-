@@ -4,11 +4,11 @@ const api = axios.create({
   baseURL: "https://api-planner.herokuapp.com",
 });
 
-api.interceptors.request.use(async (config) => {
+api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
 
   if (token) {
-    api.defaults.headers.authorization = `Bearer ${token}`;
+    config.headers.authorization = `Bearer ${token}`;
   }
 
   return config;
