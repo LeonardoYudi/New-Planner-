@@ -1,8 +1,11 @@
 import { CalendarComponent } from '@syncfusion/ej2-react-calendars';
+import styled from 'styled-components';
 
 function Calendario(){
     return(
-        <CalendarComponent id="calendar"/>
+        <div>
+            <CalendarComponent id="calendar"/>
+        </div>
     )
 }
 

@@ -37,9 +37,11 @@ function SectionMovies(){
 export default SectionMovies;
 
 export const Container = styled.div`
+    width: 100%;
+    height: auto;
     h1{
         text-align: center;
-        margin: 4rem 0;
+        margin: 2rem 0;
     }
 `
 
@@ -47,9 +49,10 @@ export const MovieList = styled.ul`
     list-style: none;
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    grid-template-rows: 200px;
-    column-gap: 3rem;
+    grid-template-rows: 300px;
+    column-gap: 2rem;
     row-gap: 4rem;
+    padding: 2rem;
 `
 
 export const Movie = styled.li`

@@ -4,6 +4,8 @@ import PostsList from "./PostsList";
 import api from "../../services/api";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import NewPostList from "./NewPostList";
+import Calendario from "./Calendario";
 
 function NewCardSpace() {
   const [user, setUser] = useState({
@@ -34,7 +36,10 @@ function NewCardSpace() {
         <div></div>
       </StyleSection1>
       <StyleSection2>
-        <PostsList />
+        <NewPostList/>
+        <div>
+          <Calendario/>
+        </div>
       </StyleSection2>
     </StyleCardSpace>
   );
@@ -53,7 +58,7 @@ export const StyleCardSpace = styled.section`
 
 export const StyleSection1 = styled.section`
   display: flex;
-  width: 100%;
+  width: 85%;
   flex-direction: row;
   justify-content: space-between;
   border-bottom: 2px solid lightgray;
@@ -64,5 +69,7 @@ export const StyleSection1 = styled.section`
 `;
 
 export const StyleSection2 = styled.section`
-  display: flex;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 85% 15%;
 `;

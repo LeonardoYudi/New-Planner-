@@ -37,10 +37,9 @@ function NewAside() {
               </Link>
             </BtnAside>
             <BtnAside>
-              <button>Calendário</button>
-            </BtnAside>
-            <BtnAside>
-              <button>Filmes Recomendados</button>
+              <Link to="/filmes">
+                <button>Filmes Recomendados</button>
+              </Link>
             </BtnAside>
           </ul>
         </section>
@@ -78,6 +77,8 @@ export const LogoAside = styled.h1`
 `;
 
 export const AsideUserStyle = styled.aside`
+  
+ 
   background-color: #202434;
   width: 15%;
   height: 100%;

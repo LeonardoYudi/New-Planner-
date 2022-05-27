@@ -7,6 +7,7 @@ import PageLogin from "../Components/PaginasIniciais/pageLogin.jsx";
 import PageCadastro from "../Components/PaginasIniciais/pageCadastro.jsx";
 import NewUserPage from "../Components/UserPages/NewUserPage.jsx";
 import NewUserConfigs from "../Components/UserPages/NewUserConfigs.jsx";
+import NewSectionMovies from "../Components/UserPages/NewSectionMovies.jsx";
 
 function NewScreen(){
     const [theme, setTheme] = useState("light");
@@ -21,7 +22,7 @@ function NewScreen(){
       backGroundButton1:"#0ea4c9",
       backGroundButton2:"none",
       white : "#fcfcfc",
-      userWork:"#fcfcfc",
+      userWork:"#f4f4fc",
     };
   
     const DarkTheme = {
@@ -64,6 +65,7 @@ function NewScreen(){
                     <Route path="/cadastro" element={<PageCadastro/>}/>
                     <Route path="/pagina" element={<NewUserPage/>}/>
                     <Route path="/configs" element={<NewUserConfigs/>}/>
+                    <Route path="/filmes" element={<NewSectionMovies/>}/>
                     <Route path="*" element={<PageStart/>}/>
                   </Routes>
                 </PageStyle>

@@ -39,50 +39,61 @@ function PostsList() {
 
   return (
     <>
-      <AreaPosts>
-        <TitleSection>
-          <h2>Seus Posts</h2>
-        </TitleSection>
-        <PostList>
-          {posts.map((post, index) => (
-            <Post>
-              <PostTitle>
-                <h3>{post.title}</h3>
-                <button onClick={() => deletarCard(index)}>
-                  <BsTrash size={18} />
-                </button>
-              </PostTitle>
-              <PostMain></PostMain>
-              <PostFooter>
-                <Status>
-                  <label for="status">Status:</label>
-                  <select value={post.completed} name="status" id="status">
-                    <option value={false}>Fazendo</option>
-                    <option value={true}>Completo</option>
-                  </select>
-                </Status>
-                <p>Criado em:{post.dataCriado}</p>
-              </PostFooter>
-            </Post>
-          ))}
-          <NovaPostagem onClick={adicionarCard}>
-            Novo Post
-            <BsPlusCircle size={28} />
-          </NovaPostagem>
-        </PostList>
-      </AreaPosts>
-      <Calendario />
+        <Container>
+            <TitleSection>
+            <h2>Seus Posts</h2>
+            </TitleSection>
+        <AreaPosts>
+            <PostList>
+            {posts.map((post, index) => (
+                <Post>
+                <PostTitle>
+                    <h3>{post.title}</h3>
+                    <button onClick={() => deletarCard(index)}>
+                    <BsTrash size={18} />
+                    </button>
+                </PostTitle>
+                <PostMain>
+
+                </PostMain>
+                <PostFooter>
+                    <Status>
+                    <label for="status">Status:</label>
+                    <select value={post.completed} name="status" id="status">
+                        <option value={false}>Fazendo</option>
+                        <option value={true}>Completo</option>
+                    </select>
+                    </Status>
+                    <p>Criado em:{post.dataCriado}</p>
+                </PostFooter>
+                </Post>
+            ))}
+            <NovaPostagem onClick={adicionarCard}>
+                Novo Post
+                <BsPlusCircle size={28} />
+            </NovaPostagem>
+            </PostList>
+        </AreaPosts>
+        </Container>
+    <Calendario />
     </>
   );
 }
 
 export default PostsList;
 
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 100%;
+`
+
+
 export const AreaPosts = styled.section`
-  width: 90%;
+  width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
 `;
 
 export const TitleSection = styled.section`
@@ -94,7 +105,11 @@ export const TitleSection = styled.section`
 export const PostList = styled.ul`
   list-style: none;
   padding: 1rem 2rem;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+  grid-template-rows: 200px;
+  column-gap: 3rem;
+  row-gap: 2rem;
 `;
 
 export const Post = styled.li`
@@ -168,4 +183,6 @@ export const NovaPostagem = styled.button`
   padding: 0.5rem;
   font-size: 1.3rem;
   cursor: pointer;
+  width: 150px;
+  height: 150px;
 `;
