@@ -10,20 +10,15 @@ function NewCardSpace() {
     nome: "",
   });
 
-  const navigate = useNavigate();
-
   const buscarUsuario = async () => {
     try {
       const resp = (await api.get("/users")).data;
       setUser({nome: resp.nome});
-      console.log(resp);
     } catch (error) {
-      alert(
+      /*alert(
         error.response?.data?.message ||
           "Ops! Não foi possível buscar usuário logado"
-      );
-
-      // navigate("/");
+      );*/
     }
   };
 

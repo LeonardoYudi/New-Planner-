@@ -10,8 +10,6 @@ function NewConfigsArea() {
     confirmSenha: "",
   });
 
-  const navigate = useNavigate();
-
   const updateField = ({ target }) => {
     const input = { ...passInput };
     input[target.name] = target.value.trim();
