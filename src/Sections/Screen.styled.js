@@ -8,6 +8,9 @@ export const HeaderPage = styled.header`
     width: 100vw;
     height: 9vh;
     border: 1px solid ${(props)=>props.theme.backgroundIcon};  
+    border-top: none;
+    border-left: none;
+    border-right: none;
     display: flex;
     padding: 1.3rem 2rem;
     justify-content: space-between;
@@ -107,5 +110,10 @@ export const ButtonLogCad = styled(ButtonAcess)`
 export const UserPainelStyle = styled.main`
     width: 100vw;
     height: 100vh;
+    display: flex;
+`
+export const MoviePainelStyle = styled.main`
+    width: 100vw;
+    min-height: 100vh;
     display: flex;
 `

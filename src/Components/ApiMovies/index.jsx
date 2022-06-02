@@ -15,51 +15,39 @@ function SectionMovies(){
     }, [])
 
     return(
-        <Container>
-            <h1>Filmes do Momento</h1>
-            <MovieList>
-                {movies.map(movie =>{
-                    return(
-                        <Movie>
-                            <Link to={`/details/${movie.id}`}>
+        <MovieList>
+            {movies.map(movie =>{
+                return(
+                    <Movie>
+                        <Link to={`/details/${movie.id}`}>
                             <img src={`${imagePath}${movie.poster_path}`} alt={movie.title}></img>
-                            </Link>
-                            <span>{movie.title}</span>
-                        </Movie>
-                    )
-                })}
-            </MovieList>
-        </Container>
+                        </Link>
+                        <span>{movie.title}</span>
+                    </Movie>
+                )
+            })}
+        </MovieList>
     )
 
 }
 
 export default SectionMovies;
 
-export const Container = styled.div`
-    width: 100%;
-    height: auto;
-    h1{
-        text-align: center;
-        margin: 2rem 0;
-    }
-`
+
 
 export const MovieList = styled.ul`
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    grid-template-rows: 300px;
-    column-gap: 2rem;
-    row-gap: 4rem;
-    padding: 2rem;
+    grid-template-columns: repeat(auto-fit,minmax(190px,1vh));
+    grid-template-rows: 350px;
+    row-gap: 2rem;
 `
 
 export const Movie = styled.li`
     display: flex;
     flex-direction: column;
-    align-items: center;
-
+    align-items: center;   
+    
     img{
         width: 180px;
         border-radius: 1rem;
@@ -68,7 +56,7 @@ export const Movie = styled.li`
 
     span{
         font-weight: bold;
-        font-size: 120%;
+        font-size: 100%;
         text-align: center;
     }
     a{

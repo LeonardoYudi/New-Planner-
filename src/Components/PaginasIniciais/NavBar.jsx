@@ -6,7 +6,7 @@ function NavBar() {
       <DisplayNav>
         <Link to="/"><NavButton>Inicio</NavButton></Link>
         <Link to="/lembretes"><NavButton>Documentação</NavButton></Link>
-        <Link to="/pagina"><NavButton>Página</NavButton></Link>
+        <Link to="/paginaPainel"><NavButton>Página</NavButton></Link>
         <Link to="/cadastro"><NavButton>Cadastrar</NavButton></Link>
         <Link to="/login"><NavButton>Login</NavButton></Link>
       </DisplayNav>

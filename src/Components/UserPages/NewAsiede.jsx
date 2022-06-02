@@ -31,24 +31,41 @@ function NewAside() {
         <section>
           <h3>Menu</h3>
           <ul>
-            <BtnAside>
+            <LiAside>
               <Link to="/pagina">
                 <button>Painel</button>
               </Link>
-            </BtnAside>
-            <BtnAside>
+            </LiAside>
+            <LiAside>
               <Link to="/filmes">
                 <button>Filmes Recomendados</button>
               </Link>
-            </BtnAside>
+            </LiAside>
+            <LiAside>
+              <Link to="/configs">
+                <button>Configurações</button>
+              </Link>
+            </LiAside>
+          </ul>
+        </section>
+        <section>
+          <h3>Projetos</h3>
+          <ul>
+            <LiAside>
+              <Link to="/configs">
+                <button>Configurações</button>
+              </Link>
+            </LiAside>
           </ul>
         </section>
         <ul>
-          <BtnAside>
-            <Link to="/configs">
-              <button>Configurações</button>
+          <NovoProjeto>
+            <Link to="/">
+              <button>
+                + Novo Projeto
+              </button>
             </Link>
-          </BtnAside>
+          </NovoProjeto>
           <BtnSair>
             <button onClick={sair}>Sair</button>
           </BtnSair>
@@ -109,7 +126,7 @@ export const AsideUserStyle = styled.aside`
   }
 `;
 
-export const BtnAside = styled.li`
+export const LiAside = styled.li`
   list-style: none;
 
   button {
@@ -131,6 +148,31 @@ export const BtnAside = styled.li`
     color: white;
   }
 `;
+
+
+export const NovoProjeto = styled.li`
+  list-style: none;
+
+  button {
+    background: none;
+    border: none;
+    border-radius: 1rem;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.3rem;
+    padding: 1rem 1rem 1rem 1.7rem;
+    text-align: start;
+    transition: all 0.3s;
+    width: 100%;
+    cursor: pointer;
+    background-color: #304ccc;
+  }
+
+  button:hover {
+    background-color: #0a32e6;
+  }
+`;
+
 
 export const BtnSair = styled.li`
   list-style: none;

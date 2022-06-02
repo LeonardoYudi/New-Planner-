@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import api from "../../services/api";
-
+import api from "../../../services/api";
+import {HeadersPages, StylePainel} from "../PaginaInicial/PainelUser"
 function NewConfigsArea() {
   const [passInput, setPassInput] = useState({
     senhaAtual: "",
@@ -42,14 +42,12 @@ function NewConfigsArea() {
   };
 
   return (
-    <StyleConfigsSpace>
-      <StyleSection1>
-        <CardSection1>
-          <h2 id="name">Configurações</h2>
-        </CardSection1>
-      </StyleSection1>
-      <StyleSection2>
-        <AlterarSenha>
+    <StylePainel>
+      <HeadersPages>
+        <h2>Configurações</h2>
+      </HeadersPages>
+      <ContainerConfigs>
+        <div className="configCard alterarSenha">
           <h2>Alterar Senha</h2>
           <form>
             <input
@@ -78,74 +76,64 @@ function NewConfigsArea() {
             />
           </form>
           <button onClick={alterarSenha} type="submit">Alterar</button>
-        </AlterarSenha>
-      </StyleSection2>
-    </StyleConfigsSpace>
+        </div>
+      </ContainerConfigs>
+    </StylePainel>
   );
 }
 
 export default NewConfigsArea;
 
-export const StyleConfigsSpace = styled.section`
-  width: 85%;
-  height: 100%;
-  background-color: ${(props) => props.theme.userWork};
-  transition: all 0.7s;
-  display: grid;
-  grid-template-rows: 10% 90%;
-`;
+export const ContainerConfigs = styled.div`
+  padding: 2rem 4rem;
+  background-image: url('https://images.unsplash.com/photo-1606166325695-ce4d64e3195f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 
-export const StyleSection1 = styled.section`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  border-bottom: 2px solid lightgray;
-`;
-
-export const CardSection1 = styled.div`
-  margin-left: 2rem;
-`;
-
-export const StyleSection2 = styled.section`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-template-rows: 250px;
-  column-gap: 5rem;
-  row-gap: 2rem;
-  padding: 2rem;
-`;
-
-export const AlterarSenha = styled.div`
-  background-color: #fff;
-  box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.77);
-  max-width: 450px;
-  border-radius: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  cursor: pointer;
-  transition: all 0.4s;
-  .text-center {
-    text-align: center;
+  .configCard{
+    backdrop-filter: blur(0px) saturate(180%);
+    -webkit-backdrop-filter: blur(0px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
   }
 
-  form {
+  .alterarSenha{
     display: flex;
     flex-direction: column;
-    width: 100%;
-    align-items: center;
-    input {
-      width: 90%;
-      padding: 0.7rem 1.3rem;
-      margin-bottom: 0.4rem;
-      border-radius: 1rem;
+    width: 30%;
+    padding: 1rem 2rem;
+
+    h2{
+      font-weight: 500;
+      padding: 1rem 0rem;
+      border-bottom: 1px solid gray;
+    }
+    form{
+      display: flex;
+      flex-direction: column;
+      padding: 1rem 0rem;
+      input{
+        width: 100%;
+        padding: 0.7rem;
+        outline: 1px;
+        border: 1px solid gray;
+        border-radius: 12px;
+        margin-bottom: 8px;
+      }
+    }
+
+    button{
+      align-self: center;
+      width: 80%;
+      padding: 0.7rem;
+      border: 1px solid gray;
+      border-radius: 12px;
+      cursor: pointer;
     }
   }
+`
 
-  button {
-    width: 80%;
-    padding: 0.7rem;
-    border-radius: 1rem;
-  }
-`;
+
+

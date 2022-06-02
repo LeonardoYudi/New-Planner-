@@ -1,11 +1,10 @@
-import { UserPainelStyle } from "../../Sections/Screen.styled";
-import NewAside from "./NewAsiede";
+import Aside from "../Aside2.0"
 import NewConfigsArea from "./NewConfigsArea";
-
+import { UserPainelStyle } from "../../../Sections/Screen.styled";
 function NewUserConfigs(){
     return(
         <UserPainelStyle>
-            <NewAside/>
+            <Aside/>
             <NewConfigsArea/>
         </UserPainelStyle>
     );

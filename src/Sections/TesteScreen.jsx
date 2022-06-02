@@ -5,9 +5,11 @@ import { useState } from "react";
 import PageStart from "../Components/PaginasIniciais/pageStart.jsx";
 import PageLogin from "../Components/PaginasIniciais/pageLogin.jsx";
 import PageCadastro from "../Components/PaginasIniciais/pageCadastro.jsx";
-import NewUserPage from "../Components/UserPages/NewUserPage.jsx";
-import NewUserConfigs from "../Components/UserPages/NewUserConfigs.jsx";
-import NewSectionMovies from "../Components/UserPages/NewSectionMovies.jsx";
+
+import NewUserConfigs from "../Components/UserPages/PaginaConfig/NewUserConfigs"
+import MoviesPage from"../Components/UserPages/PaginaFilmes/-MoviesPage"
+import NewUserPage from "../Components/UserPages/PaginaInicial/-UserPage.jsx";
+import TarefaPage from "../Components/UserPages/PaginaCards/-TarefaPage";
 
 function NewScreen(){
     const [theme, setTheme] = useState("light");
@@ -15,7 +17,7 @@ function NewScreen(){
     const LightTheme = {
       titleColor1: "black",
       titleColor2: "#097b99",
-      backgroundPage: "#e8e4e4",
+      backgroundPage: "#F6F7F8",
       backgroundIcon: "#292C35",
       colorLinks: "black",
       colorTitleAcess: "#284c54",
@@ -58,17 +60,16 @@ function NewScreen(){
         <BrowserRouter>
             <ThemeProvider theme={themes[theme]}>
                 <ThemeToggle onClick={changeTheme}>{icon}</ThemeToggle>
-                <PageStyle>
                   <Routes>
                     <Route path="/" element={<PageStart/>}/>
                     <Route path="/login" element={<PageLogin/>}/>
                     <Route path="/cadastro" element={<PageCadastro/>}/>
-                    <Route path="/pagina" element={<NewUserPage/>}/>
-                    <Route path="/configs" element={<NewUserConfigs/>}/>
-                    <Route path="/filmes" element={<NewSectionMovies/>}/>
+                    <Route path="/filmes" element={<MoviesPage/>}/>
+                    <Route path="/paginaPainel" element={<NewUserPage/>}/>
+                    <Route path="/painelTarefa" element={<TarefaPage/>}/>
+                    <Route path="/painelConfig" element={<NewUserConfigs/>}/>
                     <Route path="*" element={<PageStart/>}/>
-                  </Routes>
-                </PageStyle>
+                  </Routes>     
             </ThemeProvider>
         </BrowserRouter>
         </div>

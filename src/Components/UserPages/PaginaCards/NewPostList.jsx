@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { BsTrash, BsEye, BsPlusCircle } from "react-icons/bs";
-import api from "../../services/api";
+import api from "../../../services/api";
 
 function NewPostList() {
   const [posts, setPosts] = useState([]);

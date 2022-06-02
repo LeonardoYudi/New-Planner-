@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserPainelStyle } from "../../Sections/Screen.styled";
-import NewAside from "./NewAsiede";
-import NewCardSpace from "./NewCardSpace";
+import { UserPainelStyle } from "../../../Sections/Screen.styled";
+import Aside from "../Aside2.0";
+import PainelUser from "./PainelUser";
 
 function NewUserPage() {
   const navigate = useNavigate();
@@ -17,8 +17,8 @@ function NewUserPage() {
 
   return (
     <UserPainelStyle>
-      <NewAside />
-      <NewCardSpace />
+      <Aside/>
+      <PainelUser/>
     </UserPainelStyle>
   );
 }
