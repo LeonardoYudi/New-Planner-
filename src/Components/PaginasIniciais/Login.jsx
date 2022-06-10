@@ -64,6 +64,8 @@ function Login() {
           ></InputAcess>
         </FormAcess>
         <ButtonAcess onClick={login}>Login</ButtonAcess>
+        <Link to="/recuperacao">ESQUECI MINHA SENHA</Link>
+        <br/><br/>
         <AcessP>Não possui conta ?</AcessP>
         <Link to="/cadastro">
           <ButtonLogCad>Criar Agora</ButtonLogCad>

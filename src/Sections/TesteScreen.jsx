@@ -4,12 +4,15 @@ import styled, { ThemeProvider } from "styled-components";
 import { useState } from "react";
 import PageStart from "../Components/PaginasIniciais/pageStart.jsx";
 import PageLogin from "../Components/PaginasIniciais/pageLogin.jsx";
+import PageRecuperacao from "../Components/PaginasIniciais/pageRecuperacao.jsx";
 import PageCadastro from "../Components/PaginasIniciais/pageCadastro.jsx";
 
 import NewUserConfigs from "../Components/UserPages/PaginaConfig/NewUserConfigs"
 import MoviesPage from"../Components/UserPages/PaginaFilmes/-MoviesPage"
 import NewUserPage from "../Components/UserPages/PaginaInicial/-UserPage.jsx";
 import TarefaPage from "../Components/UserPages/PaginaCards/-TarefaPage";
+// import NewSectionMovies from "../Components/UserPages/NewSectionMovies.jsx";
+import PageAlteracaoSenha from "../Components/PaginasIniciais/pageAlteracaoSenha.jsx";
 
 function NewScreen(){
     const [theme, setTheme] = useState("light");
@@ -63,11 +66,15 @@ function NewScreen(){
                   <Routes>
                     <Route path="/" element={<PageStart/>}/>
                     <Route path="/login" element={<PageLogin/>}/>
+                    <Route path="/recuperacao" element={<PageRecuperacao/>}/>
                     <Route path="/cadastro" element={<PageCadastro/>}/>
+
                     <Route path="/filmes" element={<MoviesPage/>}/>
                     <Route path="/paginaPainel" element={<NewUserPage/>}/>
                     <Route path="/painelTarefa" element={<TarefaPage/>}/>
                     <Route path="/painelConfig" element={<NewUserConfigs/>}/>
+                    
+                    <Route path="/alteracao" element={<PageAlteracaoSenha/>}/>
                     <Route path="*" element={<PageStart/>}/>
                   </Routes>     
             </ThemeProvider>
