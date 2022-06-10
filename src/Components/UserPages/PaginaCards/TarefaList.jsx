@@ -146,7 +146,7 @@ function TarefaList() {
                   checked={entry.completed}
                 />
                 <h3>{entry.description}</h3>
-                <input type="date" className="data" />
+                {/*<input type="date" className="data" />*/}
                 <button
                   className="btn-delTarefa"
                   onClick={() => deletarEntrada(index, eIndex)}
