@@ -1,7 +1,27 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import api from "../../services/api";
 
 function Aside(){
+
+    const navigate = useNavigate();
+
+    const logoutAux = () => {
+      localStorage.removeItem("token");
+      navigate("/");
+    };
+  
+    const sair = async () => {
+      try {
+        await api.post("/users/logout");
+        logoutAux();
+      } catch (error) {
+        if (error.response.status === 401) {
+          logoutAux();
+        }
+      }
+    };
+
     return(
         <AsideStyle>
             <Logo>
@@ -30,7 +50,7 @@ function Aside(){
             </MenuItens>
             <MenuItensBottom className="bottom">
                 <button className="novoProjeto">Novo Projeto</button>
-                <button className="sair">Sair</button>
+                <button  onClick={sair} className="sair">Sair</button>
             </MenuItensBottom>
         </AsideStyle>
     )

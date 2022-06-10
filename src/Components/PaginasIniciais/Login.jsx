@@ -31,7 +31,7 @@ function Login() {
     try {
       const resp = await api.post("/users/login", userInput);
       localStorage.setItem("token", resp.data?.token);
-      navigate("/pagina");
+      navigate("/paginaPainel");
     } catch (error) {
       alert(
         error.response?.data?.message || "Ops! Não foi possível efetuar o login"

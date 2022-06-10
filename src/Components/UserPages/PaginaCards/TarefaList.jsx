@@ -1,31 +1,159 @@
 import styled from "styled-components";
-
+import { useState, useEffect } from "react";
+import api from "../../../services/api";
+import { BsTrash} from "react-icons/bs";
 function TarefaList(){
+
+    const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    buscarPosts();
+  }, []);
+
+  const buscarPosts = async () => {
+    let _posts = [];
+
+    try {
+      _posts = (await api.get("/cards")).data;
+    } catch (error) {
+      alert(error.response?.data?.message);
+    }
+
+    setPosts(_posts);
+  };
+
+  const adicionarCard = async () => {
+    const label = window.prompt("Título");
+
+    const _posts = posts.concat();
+
+    const card = {
+      label,
+      entries: [],
+      data_criado: new Date().toLocaleDateString("pt-BR"),
+      completed: false,
+    };
+
+    let novoCard;
+    try {
+      novoCard = (await api.post("/cards", card)).data;
+    } catch (error) {
+      alert(error.response?.data?.message);
+    }
+    card.id = novoCard.id;
+
+    _posts.push(card);
+    setPosts(_posts);
+  };
+
+  const deletarCard = async (index) => {
+    const ok = window.confirm("Deseja realmente excluir este card?");
+    if (!ok) return;
+
+    const _posts = posts.concat();
+
+    try {
+      await api.delete(`/cards?cardId=${_posts[index].id}`);
+    } catch (error) {
+      console.log(error);
+      alert(error.response?.data?.message);
+    }
+
+    _posts.splice(index, 1);
+    setPosts(_posts);
+  };
+
+  const adicionarEntrada = async (index) => {
+    const _posts = posts.concat();
+
+    const description = prompt("Descrição");
+
+    let novaEntrada;
+    try {
+      novaEntrada = (
+        await api.post(`/cards/entries`, {
+          cardId: _posts[index].id,
+          description,
+        })
+      ).data;
+    } catch (error) {
+      alert(error.response?.data?.message);
+    }
+
+    const entrada = {
+      id: novaEntrada.id,
+      description,
+    };
+
+    _posts[index].entries.push(entrada);
+    setPosts(_posts);
+  };
+
+  const deletarEntrada = async (index, eIndex) => {
+    const ok = window.confirm("Deseja realmente excluir esta entrada?");
+    if (!ok) return;
+
+    const _posts = posts.concat();
+    const entryId = _posts[index].entries[eIndex].id;
+
+    try {
+      await api.delete(`/cards/entries?entryId=${entryId}`);
+    } catch (error) {
+      alert(error.response?.data?.message);
+    }
+
+    _posts[index].entries.splice(eIndex, 1);
+    setPosts(_posts);
+  };
+
+  const onChangeSelect = async (e, index, eIndex) => {
+    const _posts = posts.concat();
+
+    const completed = e.currentTarget.checked;
+
+    _posts[index].entries[eIndex].completed = completed;
+
+    try {
+      await api.post("/cards/entries/completes", {
+        entryId: _posts[index].entries[eIndex].id,
+        completed: completed ? 1 : 0,
+      });
+    } catch (error) {
+      alert(error.response?.data?.message);
+    }
+
+    setPosts(_posts);
+  };
+
+
     return(
         <TarefaListStyle>
-            <div className="tarefaCardStyle tarefaCardDislay">
-               <div className="headerCard">
-                    <h2>Titulo</h2>
-                    <div className="btn-div">
-                        <button>+</button>
-                        <button>X</button>
+          
+           
+                <div className="tarefaCardStyle tarefaCardDislay">
+                <div className="headerCard">
+                        <h2>Titulo</h2>
+                        <div className="btn-div">
+                            <button>+</button>
+                            <button>X</button>
+                        </div>
+                </div>
+                <div className="mainCard">
+                    <div className="tarefaItem">
+                            <input type="checkbox"/>
+                            <h3>Entrega do Protótipo</h3>
+                            <input type="date" className="data"/>
+                            <button className="btn-delTarefa"><BsTrash size={16}/></button>
                     </div>
-               </div>
-               <div className="mainCard">
-                   <div className="tarefaItem">
-                        <input type="checkbox"/>
-                        <h3>Entrega do Protótipo</h3>
-                        <input type="date" className="data"/>
-                   </div>
-               </div>
-            </div>
-            
-            <div className="tarefaCardStyle tarefaCardDislay create ">
-                <button>Novo Card</button>
-            </div>
-             
-        </TarefaListStyle>
+                </div>
+                </div>
+                
+                <div className="tarefaCardStyle tarefaCardDislay create ">
+                    <button onClick={() => adicionarEntrada()}>Novo Card</button>
+                </div>
 
+          
+        </TarefaListStyle>
     )
 }
 
@@ -58,6 +186,7 @@ export const TarefaListStyle = styled.div`
     }
 
     .tarefaItem{
+      
         h3{
             font-weight: 500;
             font-size: 1rem;
@@ -66,10 +195,25 @@ export const TarefaListStyle = styled.div`
         display: flex;
         justify-content: space-between;
         border-bottom: 1px solid gray;
+
+        input[type="checkbox"]{
+            cursor: pointer;
+            width: 16px;
+            height: 16px;
+        }
+
         input[type="date"]{
             background: none;
             border: none;
             outline: none;
+        }
+
+        .btn-delTarefa{
+            margin: 0;
+            padding: 0;
+            cursor: pointer;
+            background: none;
+            border: none;
         }
     }
 
