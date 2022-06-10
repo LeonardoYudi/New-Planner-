@@ -12,6 +12,7 @@ import api from "../../services/api";
 
 function AlteracaoSenha() {
   const [userInput, setUserInput] = useState({
+    email: localStorage.getItem("email"),
     codigo: "",
     senha: "",
     confirmacao: "",
@@ -29,6 +30,7 @@ function AlteracaoSenha() {
     e.preventDefault();
 
     if (
+      userInput.email === "" ||
       userInput.codigo === "" ||
       userInput.senha === "" ||
       userInput.confirmacao === ""
@@ -44,7 +46,7 @@ function AlteracaoSenha() {
 
     try {
       const resp = (await api.post("/users/senhas/alteracoes", userInput)).data;
-      if (resp.sucess) {
+      if (resp.success) {
         alert("Senha alterada com sucesso!");
         navigate("/login");
       } else {
@@ -65,6 +67,15 @@ function AlteracaoSenha() {
         <h3>Informe o código enviado para seu e-mail</h3>
         <h3>e sua nova senha abaixo</h3>
         <FormAcess>
+        <InputAcess
+            name="email"
+            onChange={updateField}
+            value={userInput.email}
+            placeholder="Digite seu email"
+            type="email"
+            required
+          ></InputAcess>
+
           <InputAcess
             name="codigo"
             onChange={updateField}

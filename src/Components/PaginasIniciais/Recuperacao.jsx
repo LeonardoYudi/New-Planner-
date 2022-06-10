@@ -33,6 +33,7 @@ function Recuperacao() {
       alert(error?.response?.data?.message);
     }
 
+    localStorage.setItem("email", email);
     navigate("/alteracao");
   };
 
