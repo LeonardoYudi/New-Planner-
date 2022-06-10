@@ -30,6 +30,7 @@ function Recuperacao() {
     try {
       await api.post("users/senhas/solicitacoes", { email });
     } catch (error) {
+      console.log(error)
       alert(error?.response?.data?.message);
     }
 
