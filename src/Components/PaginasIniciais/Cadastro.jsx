@@ -38,7 +38,7 @@ function Cadastro() {
 
     const resp = await api.post("/users/cadastros", userInput);
     localStorage.setItem("token", resp.data?.token);
-    navigate("/pagina");
+    navigate("/paginaPainel");
   };
 
   return (

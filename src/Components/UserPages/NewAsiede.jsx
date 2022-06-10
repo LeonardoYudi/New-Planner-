@@ -32,7 +32,7 @@ function NewAside() {
           <h3>Menu</h3>
           <ul>
             <LiAside>
-              <Link to="/pagina">
+              <Link to="/paginaPainel">
                 <button>Painel</button>
               </Link>
             </LiAside>

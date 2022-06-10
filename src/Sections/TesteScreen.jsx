@@ -7,80 +7,85 @@ import PageLogin from "../Components/PaginasIniciais/pageLogin.jsx";
 import PageRecuperacao from "../Components/PaginasIniciais/pageRecuperacao.jsx";
 import PageCadastro from "../Components/PaginasIniciais/pageCadastro.jsx";
 
-import NewUserConfigs from "../Components/UserPages/PaginaConfig/NewUserConfigs"
-import MoviesPage from"../Components/UserPages/PaginaFilmes/-MoviesPage"
+import NewUserConfigs from "../Components/UserPages/PaginaConfig/NewUserConfigs";
+import MoviesPage from "../Components/UserPages/PaginaFilmes/-MoviesPage";
 import NewUserPage from "../Components/UserPages/PaginaInicial/-UserPage.jsx";
 import TarefaPage from "../Components/UserPages/PaginaCards/-TarefaPage";
 // import NewSectionMovies from "../Components/UserPages/NewSectionMovies.jsx";
 import PageAlteracaoSenha from "../Components/PaginasIniciais/pageAlteracaoSenha.jsx";
 
-function NewScreen(){
-    const [theme, setTheme] = useState("light");
+function NewScreen() {
+  const [theme, setTheme] = useState("light");
 
-    const LightTheme = {
-      titleColor1: "black",
-      titleColor2: "#097b99",
-      backgroundPage: "#F6F7F8",
-      backgroundIcon: "#292C35",
-      colorLinks: "black",
-      colorTitleAcess: "#284c54",
-      backGroundButton1:"#0ea4c9",
-      backGroundButton2:"none",
-      white : "#fcfcfc",
-      userWork:"#f4f4fc",
-    };
-  
-    const DarkTheme = {
-      titleColor1: "white",
-      titleColor2: "#097b99",
-      backgroundPage: "#080404",
-      backgroundIcon: "#ecedef",
-      colorLinks: "white",
-      colorTitleAcess: "white",
-      backGroundButton1:"#0ea4c9",
-      backGroundButton2:"#0ea4c9",
-      white : "#fcfcfc",
-      userWork:"#131418",
-    };
-  
-    const themes = {
-      light: LightTheme,
-      dark: DarkTheme,
-    };
-  
-    function changeTheme() {
-      if (theme === "light") {
-        setTheme("dark");
-      } else {
-        setTheme("light");
-      }
+  const LightTheme = {
+    titleColor1: "black",
+    titleColor2: "#097b99",
+    backgroundPage: "#F6F7F8",
+    backgroundIcon: "#292C35",
+    colorLinks: "black",
+    colorTitleAcess: "#284c54",
+    backGroundButton1: "#0ea4c9",
+    backGroundButton2: "none",
+    white: "#fcfcfc",
+    userWork: "#f4f4fc",
+  };
+
+  const DarkTheme = {
+    titleColor1: "white",
+    titleColor2: "#097b99",
+    backgroundPage: "#080404",
+    backgroundIcon: "#ecedef",
+    colorLinks: "white",
+    colorTitleAcess: "white",
+    backGroundButton1: "#0ea4c9",
+    backGroundButton2: "#0ea4c9",
+    white: "#fcfcfc",
+    userWork: "#131418",
+  };
+
+  const themes = {
+    light: LightTheme,
+    dark: DarkTheme,
+  };
+
+  function changeTheme() {
+    if (theme === "light") {
+      setTheme("dark");
+    } else {
+      setTheme("light");
     }
+  }
 
-    const icon = theme === "light" ? <FaMoon style={{color:'#f1c40f'}}/> : <FaSun style={{color:'#f39c12'}} />;
-
-    return(
-        <div>
-        <BrowserRouter>
-            <ThemeProvider theme={themes[theme]}>
-                <ThemeToggle onClick={changeTheme}>{icon}</ThemeToggle>
-                  <Routes>
-                    <Route path="/" element={<PageStart/>}/>
-                    <Route path="/login" element={<PageLogin/>}/>
-                    <Route path="/recuperacao" element={<PageRecuperacao/>}/>
-                    <Route path="/cadastro" element={<PageCadastro/>}/>
-
-                    <Route path="/filmes" element={<MoviesPage/>}/>
-                    <Route path="/paginaPainel" element={<NewUserPage/>}/>
-                    <Route path="/painelTarefa" element={<TarefaPage/>}/>
-                    <Route path="/painelConfig" element={<NewUserConfigs/>}/>
-                    
-                    <Route path="/alteracao" element={<PageAlteracaoSenha/>}/>
-                    <Route path="*" element={<PageStart/>}/>
-                  </Routes>     
-            </ThemeProvider>
-        </BrowserRouter>
-        </div>
+  const icon =
+    theme === "light" ? (
+      <FaMoon style={{ color: "#f1c40f" }} />
+    ) : (
+      <FaSun style={{ color: "#f39c12" }} />
     );
+
+  return (
+    <div>
+      <BrowserRouter>
+        <ThemeProvider theme={themes[theme]}>
+          {/*<ThemeToggle onClick={changeTheme}>{icon}</ThemeToggle>*/}
+          <Routes>
+            <Route path="/" element={<PageStart />} />
+            <Route path="/login" element={<PageLogin />} />
+            <Route path="/recuperacao" element={<PageRecuperacao />} />
+            <Route path="/cadastro" element={<PageCadastro />} />
+
+            <Route path="/filmes" element={<MoviesPage />} />
+            <Route path="/paginaPainel" element={<NewUserPage />} />
+            <Route path="/painelTarefa" element={<TarefaPage />} />
+            <Route path="/painelConfig" element={<NewUserConfigs />} />
+
+            <Route path="/alteracao" element={<PageAlteracaoSenha />} />
+            <Route path="*" element={<PageStart />} />
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
+    </div>
+  );
 }
 
 export default NewScreen;

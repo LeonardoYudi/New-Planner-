@@ -46,12 +46,8 @@ function AlteracaoSenha() {
 
     try {
       const resp = (await api.post("/users/senhas/alteracoes", userInput)).data;
-      if (resp.success) {
-        alert("Senha alterada com sucesso!");
-        navigate("/login");
-      } else {
-        alert("Ops! Não foi possível alterar a senha");
-      }
+      alert("Senha alterada com sucesso!");
+      navigate("/login");
     } catch (error) {
       alert(
         error?.response?.data?.message ||
@@ -67,7 +63,7 @@ function AlteracaoSenha() {
         <h3>Informe o código enviado para seu e-mail</h3>
         <h3>e sua nova senha abaixo</h3>
         <FormAcess>
-        <InputAcess
+          <InputAcess
             name="email"
             onChange={updateField}
             value={userInput.email}

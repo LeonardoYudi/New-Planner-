@@ -12,7 +12,7 @@ function PainelUser(){
             </HeadersPages>
             <ContainerArea>
                 <Perfil/>
-                <ContainerWidgets>
+                {/*<ContainerWidgets>
                     <div className="div">
                         <Clock/>
                         <TarefasChegando/>
@@ -21,7 +21,7 @@ function PainelUser(){
                     <div className="div">
                         <Achievements/>
                     </div>
-                </ContainerWidgets>
+    </ContainerWidgets>*/}
             </ContainerArea>
         </StylePainel>
     )
@@ -48,7 +48,6 @@ export const ContainerArea = styled.div`
     height: 100%;
     padding: 2rem 4rem;
     display: grid;
-    grid-template-columns: 40% 40%;
     column-gap: 8rem;
     background-image: url('https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
     background-size: cover;

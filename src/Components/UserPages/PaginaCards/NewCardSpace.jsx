@@ -15,7 +15,7 @@ function NewCardSpace() {
   const buscarUsuario = async () => {
     try {
       const resp = (await api.get("/users")).data;
-      setUser({nome: resp.nome});
+      setUser({ nome: resp.nome });
     } catch (error) {
       /*alert(
         error.response?.data?.message ||
@@ -26,7 +26,7 @@ function NewCardSpace() {
 
   useEffect(() => {
     buscarUsuario();
-  },[]);
+  }, []);
 
   return (
     <StyleCardSpace>
@@ -34,7 +34,7 @@ function NewCardSpace() {
         <h2 id="name">Olá, {user.nome}!</h2>
       </StyleSection1>
       <StyleSection2>
-        <NewPostList/>
+        <NewPostList />
       </StyleSection2>
     </StyleCardSpace>
   );
