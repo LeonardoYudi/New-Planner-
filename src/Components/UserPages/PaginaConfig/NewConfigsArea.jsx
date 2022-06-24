@@ -91,7 +91,7 @@ export const ContainerConfigs = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-
+  
   .configCard{
     backdrop-filter: blur(0px) saturate(180%);
     -webkit-backdrop-filter: blur(0px) saturate(180%);

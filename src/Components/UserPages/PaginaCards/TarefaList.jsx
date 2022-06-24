@@ -170,6 +170,11 @@ function TarefaList({ id }) {
       <div className="tarefaCardStyle tarefaCardDislay create ">
         <button onClick={() => adicionarCard()}>Novo Card</button>
       </div>
+      <div className="tarefaCardStyle tarefaCardDislay">
+        <div className="headerCard">
+          <h2>Membros</h2>
+        </div>
+      </div>
     </TarefaListStyle>
   );
 }

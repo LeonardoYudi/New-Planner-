@@ -50,10 +50,8 @@ function Aside() {
         </ul>
         <ul>
           <li>
-            <Link to={`/painelTarefa`} className="link">
-              <button>
-                <h2>Tarefas</h2>
-              </button>
+            <Link to={`/painelTarefa`} className="link">  
+              <button>Projetos</button>
             </Link>
           </li>
         </ul>

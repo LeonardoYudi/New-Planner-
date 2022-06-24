@@ -12,6 +12,11 @@ function PainelUser(){
             </HeadersPages>
             <ContainerArea>
                 <Perfil/>
+                <ContainerWidgets>
+                    <div className="div">
+                        <Clock/>
+                    </div>
+                </ContainerWidgets>
                 {/*<ContainerWidgets>
                     <div className="div">
                         <Clock/>
@@ -21,7 +26,7 @@ function PainelUser(){
                     <div className="div">
                         <Achievements/>
                     </div>
-    </ContainerWidgets>*/}
+                </ContainerWidgets>*/}
             </ContainerArea>
         </StylePainel>
     )
@@ -33,14 +38,16 @@ export default PainelUser;
 export const StylePainel = styled.div`
     width: 86%;
     display: grid;
-    grid-template-rows: 10% 5% 85%;
+    grid-template-rows: 10% 90%;
 `
 
 export const HeadersPages = styled.div`
     display: flex;
     align-items: center;
     padding-left: 3rem;
+    padding-right: 3rem;
     border-bottom: 1px solid black;
+    justify-content: space-between;
 `
 
 export const ContainerArea = styled.div`
@@ -48,6 +55,7 @@ export const ContainerArea = styled.div`
     height: 100%;
     padding: 2rem 4rem;
     display: grid;
+    grid-template-columns: 45% 45%;
     column-gap: 8rem;
     background-image: url('https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
     background-size: cover;
@@ -57,7 +65,7 @@ export const ContainerArea = styled.div`
 
 export const ContainerWidgets = styled.div`
     display: grid;
-    grid-template-rows: 60% 30%;
+    grid-template-rows: 30% 70%;
     row-gap: 5rem;
 
     .div{

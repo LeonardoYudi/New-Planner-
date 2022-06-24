@@ -90,10 +90,8 @@ function PainelTarefa() {
   return (
     <StylePainel>
       <HeadersPages>
-        <h2>Tarefas</h2>
-      </HeadersPages>
-      <HeadersPages>
-        <button onClick={novoProjeto}> - Nova tarefa - </button>
+        <Tarefas>
+        <h2>Projetos</h2>
         {projects.map((p) => (
           <button
             onClick={() => {
@@ -103,6 +101,13 @@ function PainelTarefa() {
             {p.nome}
           </button>
         ))}
+        </Tarefas>
+        <Btns>
+          <button onClick={adicionarMembro}>Convidar membro</button>
+          <button onClick={removerMembro}>Remover membro</button>
+          <button onClick={novoProjeto}>Novo Projeto</button>
+          <button>Remover Projeto</button>  
+        </Btns>
       </HeadersPages>
       <ContainerProjetos>
         <TarefaList id={idAtual} />
@@ -122,3 +127,39 @@ export const ContainerProjetos = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
 `;
+
+export const Btns = styled.div`
+   button{
+      cursor: pointer;
+      padding: 1rem 1.7rem;
+      border:none;
+      border-radius: 1.3rem;
+      font-weight: bolder;
+      transition: all 0.3s;
+      margin-left: 0.5rem;
+    }
+    button:hover{
+        background-color: #7cb4cc;
+    }
+`
+
+export const Tarefas = styled.div`
+  display: flex;
+  align-items: baseline;
+  h2{
+    margin-right: 1.3rem;
+  }
+  button{
+    padding: 1rem 1.7rem;
+    border: none;
+    margin-right: 1rem;
+    cursor: pointer;
+    border-radius: 0.5rem;
+
+    transition: all 0.3s;
+  }
+
+  button:hover{
+    background-color: #2b8ca9;
+  }
+`
