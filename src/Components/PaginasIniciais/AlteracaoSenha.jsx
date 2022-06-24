@@ -53,6 +53,7 @@ function AlteracaoSenha() {
         error?.response?.data?.message ||
           "Ops! Não foi possível alterar a senha"
       );
+      return;
     }
   };
 

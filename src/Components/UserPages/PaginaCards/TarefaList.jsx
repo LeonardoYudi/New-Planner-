@@ -17,6 +17,7 @@ function TarefaList({ id }) {
       _posts = (await api.get(`/cards?projectId=${id}`)).data;
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     setPosts(_posts);
@@ -42,6 +43,7 @@ function TarefaList({ id }) {
     } catch (error) {
       console.log(error);
       alert(error.response?.data?.message || "Não foi possível criar card");
+      return;
     }
     card.id = novoCard.id;
 
@@ -60,6 +62,7 @@ function TarefaList({ id }) {
     } catch (error) {
       console.log(error);
       alert(error.response?.data?.message);
+      return;
     }
 
     _posts.splice(index, 1);
@@ -82,6 +85,7 @@ function TarefaList({ id }) {
       ).data;
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     const entrada = {
@@ -104,6 +108,7 @@ function TarefaList({ id }) {
       await api.delete(`/cards/entries?entryId=${entryId}`);
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     _posts[index].entries.splice(eIndex, 1);
@@ -124,6 +129,7 @@ function TarefaList({ id }) {
       });
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     setPosts(_posts);

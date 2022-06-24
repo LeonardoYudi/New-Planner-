@@ -17,6 +17,7 @@ function NewPostList() {
       _posts = (await api.get("/cards")).data;
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     setPosts(_posts);
@@ -40,6 +41,7 @@ function NewPostList() {
       novoCard = (await api.post("/cards", card)).data;
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
     card.id = novoCard.id;
 
@@ -58,6 +60,7 @@ function NewPostList() {
     } catch (error) {
       console.log(error);
       alert(error.response?.data?.message);
+      return;
     }
 
     _posts.splice(index, 1);
@@ -80,6 +83,7 @@ function NewPostList() {
       ).data;
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     const entrada = {
@@ -102,6 +106,7 @@ function NewPostList() {
       await api.delete(`/cards/entries?entryId=${entryId}`);
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     _posts[index].entries.splice(eIndex, 1);
@@ -122,6 +127,7 @@ function NewPostList() {
       });
     } catch (error) {
       alert(error.response?.data?.message);
+      return;
     }
 
     setPosts(_posts);

@@ -38,6 +38,7 @@ function NewConfigsArea() {
       alert("Senha alterada com sucesso!");
     } catch (error) {
       alert("Ops! Não foi possível alterar a senha");
+      return;
     }
   };
 

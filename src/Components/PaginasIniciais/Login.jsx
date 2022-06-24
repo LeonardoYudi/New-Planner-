@@ -36,6 +36,7 @@ function Login() {
       alert(
         error.response?.data?.message || "Ops! Não foi possível efetuar o login"
       );
+      return;
     }
   };
 

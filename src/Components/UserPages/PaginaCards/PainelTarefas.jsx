@@ -52,6 +52,7 @@ function PainelTarefa() {
     } catch (error) {
       console.log(error);
       alert(error.response?.data?.message || "Não foi possível criar projeto");
+      return;
     }
     project.id = novoProjeto.id;
 

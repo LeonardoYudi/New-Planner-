@@ -32,6 +32,7 @@ function Recuperacao() {
     } catch (error) {
       console.log(error)
       alert(error?.response?.data?.message);
+      return;
     }
 
     localStorage.setItem("email", email);

@@ -23,44 +23,6 @@ function Aside() {
     }
   };
 
-  /*const buscarProjects = async () => {
-    let _projects = [];
-
-    try {
-      _projects = (await api.get(`/projects`)).data;
-    } catch (error) {
-      if (error.response.status === 401) {
-        logoutAux();
-        return;
-      }
-      navigate("/paginaPainel");
-    }
-
-    setProjects(_projects);
-  };*/
-
-  /*const novoProjeto = async () => {
-    const nome = window.prompt("Nome");
-
-    const _projects = projects.concat();
-
-    const project = {
-      nome,
-    };
-
-    let novoProjeto;
-    try {
-      novoProjeto = (await api.post("/projects", project)).data;
-    } catch (error) {
-      console.log(error);
-      alert(error.response?.data?.message || "Não foi possível criar projeto");
-    }
-    project.id = novoProjeto.id;
-
-    _projects.push(project);
-    setProjects(_projects);
-  };*/
-
   return (
     <AsideStyle>
       <Logo>
