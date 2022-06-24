@@ -5,10 +5,27 @@ import { BsTrash } from "react-icons/bs";
 
 function TarefaList({ id }) {
   const [posts, setPosts] = useState([]);
-
+  const [membros, setMembros] = useState([])
   useEffect(() => {
     buscarPosts();
+    buscarMembros();
   }, [id]);
+
+  const buscarMembros = async () => {
+    let _membros = [];
+
+    try {
+      _membros = (await api.get(`projects/members?projectId=${id}`)).data;
+    } catch (error) {
+      if (error.response.status === 401) {
+        console.log('error ao procurar membros')
+      }
+    }
+    setMembros(_membros);
+    console.log(_membros)
+  };
+
+  
 
   const buscarPosts = async () => {
     let _posts = [];
@@ -174,6 +191,15 @@ function TarefaList({ id }) {
         <div className="headerCard">
           <h2>Membros</h2>
         </div>
+        <div className="mainCard">
+              <div>
+                  {membros.map((m)=>(
+                    <p  className="tarefaItem">
+                      {m.email}
+                    </p>
+                  ))}
+              </div>  
+          </div>
       </div>
     </TarefaListStyle>
   );
@@ -204,6 +230,8 @@ export const TarefaListStyle = styled.div`
     }
   }
   .mainCard {
+    display: flex;
+    flex-direction: column;
   }
 
   .tarefaItem {

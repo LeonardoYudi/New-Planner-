@@ -10,7 +10,7 @@ function PainelTarefa() {
     { id: -1, nome: "Minhas tarefas" },
   ]);
   const [idAtual, setIdAtual] = useState(projects[0].id);
-
+  const [membros, setMembros] = useState([])
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,6 +38,7 @@ function PainelTarefa() {
     setIdAtual(_projects[0].id);
     setProjects(_projects);
   };
+  
 
   const novoProjeto = async () => {
     const nome = window.prompt("Nome");
@@ -103,6 +104,7 @@ function PainelTarefa() {
         ))}
         </Tarefas>
         <Btns>
+          <button></button>
           <button onClick={adicionarMembro}>Convidar membro</button>
           <button onClick={removerMembro}>Remover membro</button>
           <button onClick={novoProjeto}>Novo Projeto</button>
