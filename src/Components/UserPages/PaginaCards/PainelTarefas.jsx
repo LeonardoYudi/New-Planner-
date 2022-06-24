@@ -6,7 +6,9 @@ import { useEffect, useState } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 function PainelTarefa() {
-  const [projects, setProjects] = useState([{ id: 1, nome: "Minhas tarefas" }]);
+  const [projects, setProjects] = useState([
+    { id: -1, nome: "Minhas tarefas" },
+  ]);
   const [idAtual, setIdAtual] = useState(projects[0].id);
 
   const navigate = useNavigate();
@@ -33,6 +35,7 @@ function PainelTarefa() {
       navigate("/paginaPainel");
     }
 
+    setIdAtual(_projects[0].id);
     setProjects(_projects);
   };
 
@@ -58,6 +61,30 @@ function PainelTarefa() {
 
     _projects.push(project);
     setProjects(_projects);
+  };
+
+  const adicionarMembro = async () => {
+    const email = window.prompt("E-mail");
+    if (email === null) return;
+
+    try {
+      await api.post("/projects/members", { email, projectId: idAtual });
+    } catch (error) {
+      alert(error.response?.data?.message);
+      return;
+    }
+  };
+
+  const removerMembro = async () => {
+    const email = window.prompt("E-mail");
+    if (email === null) return;
+
+    try {
+      await api.delete("/projects/members", { email, projectId: idAtual });
+    } catch (error) {
+      alert(error.response?.data?.message);
+      return;
+    }
   };
 
   return (
