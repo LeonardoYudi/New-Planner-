@@ -33,7 +33,7 @@ export default PainelUser;
 export const StylePainel = styled.div`
     width: 86%;
     display: grid;
-    grid-template-rows: 10% 90%;
+    grid-template-rows: 10% 5% 85%;
 `
 
 export const HeadersPages = styled.div`

@@ -3,18 +3,18 @@ import { useState, useEffect } from "react";
 import api from "../../../services/api";
 import { BsTrash } from "react-icons/bs";
 
-function TarefaList() {
+function TarefaList({ id }) {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     buscarPosts();
-  }, []);
+  }, [id]);
 
   const buscarPosts = async () => {
     let _posts = [];
 
     try {
-      _posts = (await api.get(`/cards`)).data;
+      _posts = (await api.get(`/cards?projectId=${id}`)).data;
     } catch (error) {
       alert(error.response?.data?.message);
     }
@@ -24,6 +24,7 @@ function TarefaList() {
 
   const adicionarCard = async () => {
     const label = window.prompt("Título");
+    if (label === null) return;
 
     const _posts = posts.concat();
 
@@ -32,6 +33,7 @@ function TarefaList() {
       entries: [],
       data_criado: new Date().toLocaleDateString("pt-BR"),
       completed: false,
+      projectId: id,
     };
 
     let novoCard;
@@ -68,6 +70,7 @@ function TarefaList() {
     const _posts = posts.concat();
 
     const description = prompt("Descrição");
+    if (description === null) return;
 
     let novaEntrada;
     try {

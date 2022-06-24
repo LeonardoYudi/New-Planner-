@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://api-planner.herokuapp.com",
+  baseURL: /*"http://localhost:3333"*/"https://api-planner.herokuapp.com",
 });
 
 api.interceptors.request.use((config) => {

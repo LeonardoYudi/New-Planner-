@@ -24,6 +24,7 @@ function NewPostList() {
 
   const adicionarCard = async () => {
     const label = window.prompt("Título");
+    if (label === null) return;
 
     const _posts = posts.concat();
 
@@ -67,6 +68,7 @@ function NewPostList() {
     const _posts = posts.concat();
 
     const description = prompt("Descrição");
+    if (description === null) return;
 
     let novaEntrada;
     try {
