@@ -10,7 +10,7 @@ function PainelTarefa() {
     { id: -1, nome: "Minhas tarefas" },
   ]);
   const [idAtual, setIdAtual] = useState(projects[0].id);
-  const [membros, setMembros] = useState([])
+  const [membros, setMembros] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -38,7 +38,6 @@ function PainelTarefa() {
     setIdAtual(_projects[0].id);
     setProjects(_projects);
   };
-  
 
   const novoProjeto = async () => {
     const nome = window.prompt("Nome");
@@ -81,7 +80,7 @@ function PainelTarefa() {
     if (email === null) return;
 
     try {
-      await api.delete("/projects/members", { email, projectId: idAtual });
+      await api.delete(`/projects/members?email=${email}&projectId=${idAtual}`);
     } catch (error) {
       alert(error.response?.data?.message);
       return;
@@ -92,23 +91,22 @@ function PainelTarefa() {
     <StylePainel>
       <HeadersPages>
         <Tarefas>
-        <h2>Projetos</h2>
-        {projects.map((p) => (
-          <button
-            onClick={() => {
-              setIdAtual(p.id);
-            }}
-          >
-            {p.nome}
-          </button>
-        ))}
+          <h2>Projetos</h2>
+          {projects.map((p) => (
+            <button
+              onClick={() => {
+                setIdAtual(p.id);
+              }}
+            >
+              {p.nome}
+            </button>
+          ))}
         </Tarefas>
         <Btns>
-          <button></button>
           <button onClick={adicionarMembro}>Convidar membro</button>
           <button onClick={removerMembro}>Remover membro</button>
           <button onClick={novoProjeto}>Novo Projeto</button>
-          <button>Remover Projeto</button>  
+          {/*<button>Remover Projeto</button>  */}
         </Btns>
       </HeadersPages>
       <ContainerProjetos>
@@ -131,27 +129,27 @@ export const ContainerProjetos = styled.div`
 `;
 
 export const Btns = styled.div`
-   button{
-      cursor: pointer;
-      padding: 1rem 1.7rem;
-      border:none;
-      border-radius: 1.3rem;
-      font-weight: bolder;
-      transition: all 0.3s;
-      margin-left: 0.5rem;
-    }
-    button:hover{
-        background-color: #7cb4cc;
-    }
-`
+  button {
+    cursor: pointer;
+    padding: 1rem 1.7rem;
+    border: none;
+    border-radius: 1.3rem;
+    font-weight: bolder;
+    transition: all 0.3s;
+    margin-left: 0.5rem;
+  }
+  button:hover {
+    background-color: #7cb4cc;
+  }
+`;
 
 export const Tarefas = styled.div`
   display: flex;
   align-items: baseline;
-  h2{
+  h2 {
     margin-right: 1.3rem;
   }
-  button{
+  button {
     padding: 1rem 1.7rem;
     border: none;
     margin-right: 1rem;
@@ -161,7 +159,7 @@ export const Tarefas = styled.div`
     transition: all 0.3s;
   }
 
-  button:hover{
+  button:hover {
     background-color: #2b8ca9;
   }
-`
+`;
