@@ -10,7 +10,7 @@ function Auth() {
   });
 
   const github = async () => {
-    const resp = await api.get("/github/redirect");
+    const resp = await api.get("/github/redirect", {headers: {"Access-Control-Allow-Origin": "*"}});
     console.log(resp);
   }
 
