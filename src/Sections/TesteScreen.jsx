@@ -14,7 +14,6 @@ import TarefaPage from "../Components/UserPages/PaginaCards/-TarefaPage";
 // import NewSectionMovies from "../Components/UserPages/NewSectionMovies.jsx";
 import PageAlteracaoSenha from "../Components/PaginasIniciais/pageAlteracaoSenha.jsx";
 import AuthRedirect from "../Components/PaginasIniciais/AuthRedirect.jsx";
-import Auth from "../Components/PaginasIniciais/Auth.jsx";
 
 function NewScreen() {
   const [theme, setTheme] = useState("light");
@@ -85,7 +84,6 @@ function NewScreen() {
             <Route path="*" element={<PageStart />} />
 
             <Route path="auth/github" element={<AuthRedirect />} />
-            <Route path="github" element={<Auth />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

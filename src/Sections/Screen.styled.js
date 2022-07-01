@@ -79,7 +79,7 @@ export const ButtonAcess = styled.button`
     padding: 1rem 2rem;
     border-radius: 0.3rem;
     border: none;
-    font-size: x-large;
+    font-size: large;
     font-weight: 500;
     cursor: pointer;
     background:${(props)=>props.theme.backGroundButton1};
@@ -91,6 +91,31 @@ export const ButtonAcess = styled.button`
       box-shadow: 0px 2px 11px 6px rgba(17,197,241,0.71);
     }
 `
+
+export const ButtonAcessGithub = styled.button`
+    width: 100%;
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    border: none;
+    font-size: large;
+    font-weight: 500;
+    cursor: pointer;
+    background:#24292e;
+    color: #fff;
+    box-shadow: 0px 6px 10px -2px #8B8B8B;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    :hover{
+      box-shadow: 0px 2px 11px 6px #2b3137;
+    }
+`
+
+export const SeparatorLogin = styled.hr`
+    width: 100%;
+    margin: 12px;
+`
+
 export const AcessP = styled.p`
    color: ${(props)=>props.theme.colorTitleAcess};
    font-weight: 400;

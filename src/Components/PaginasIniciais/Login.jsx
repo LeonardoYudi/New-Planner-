@@ -9,6 +9,8 @@ import {
   AcessP,
   ButtonLogCad,
   LinkStyle,
+  ButtonAcessGithub,
+  SeparatorLogin,
 } from "../../Sections/Screen.styled";
 import api from "../../services/api";
 
@@ -46,6 +48,12 @@ function Login() {
         <h2>Login</h2>
         <h3>Para ter acesso aos nossos serviços</h3>
         <h3>efetue seu login</h3>
+        <form action="http://localhost:3333/github/redirect" style={{width: "100%"}}>
+          <ButtonAcessGithub>
+            Entrar com GitHub
+          </ButtonAcessGithub>
+        </form>
+        <SeparatorLogin />
         <FormAcess>
           <InputAcess
             onChange={updateField}
@@ -66,7 +74,8 @@ function Login() {
         </FormAcess>
         <ButtonAcess onClick={login}>Login</ButtonAcess>
         <Link to="/recuperacao">ESQUECI MINHA SENHA</Link>
-        <br/><br/>
+        <br />
+        <br />
         <AcessP>Não possui conta ?</AcessP>
         <Link to="/cadastro">
           <ButtonLogCad>Criar Agora</ButtonLogCad>

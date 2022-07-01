@@ -1,22 +1,43 @@
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import api from "../../services/api";
+
+let alreadyAuth = false;
 
 function AuthRedirect() {
   const navigate = useNavigate();
 
+  const [searchParams, setSearchParams] = useSearchParams();
+
   useEffect(() => {
-    github();
+    if (!alreadyAuth) {
+      alreadyAuth = true;
+      github();
+    }
   });
 
   const github = async () => {
-    const resp = await api.get("auth/github");
-    console.log(resp);
-  }
+    try {
+      const resp = await api.get(
+        `auth/github?code=${searchParams.get("code")}`
+      );
+      console.log(resp);
+      localStorage.setItem("token", resp.data?.token);
+      navigate("/paginaPainel");
+    } catch (error) {
+      alert(
+        error.response?.data?.message ||
+          "Não foi possível fazer login com o GitHub"
+      );
+      navigate("/");
+    }
+  };
 
-  return <div>
-    <h1>veio do github</h1>
-  </div>;
+  return (
+    <div>
+      <h3>Redirecionando para Planner...</h3>
+    </div>
+  );
 }
 
 export default AuthRedirect;
